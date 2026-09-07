@@ -15,7 +15,7 @@ jobs:
         run: pwd
 
       - name:  list Directory
-        run: ls
+        run: ls-la
 
       - name: print checkout status
         run: echo "Repository checked out"
