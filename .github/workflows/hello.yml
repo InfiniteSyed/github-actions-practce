@@ -25,4 +25,12 @@ jobs:
 
       - name: print msg
         run: echo "Running security scans"
+
+  notify:
+    runs-on: ubuntu-slim
+    if: ${{failure()}}
+
+    steps:
+      - name: print msg
+        run: echo "Test failed - taking action"     
         
