@@ -4,20 +4,24 @@ on:
   push
 
 jobs:
-  hello:
+  test:
     runs-on: ubuntu-slim
 
     steps:
       - name: checkout code
         uses: actions/checkout@v4
 
-      - name:  Present Directory
-        run: pwd
+      - name: print msg
+        run: echo "Running tests"
 
-      - name:  list Directory
-        run: ls -la
+        
+  security:
+    runs-on: ubuntu-slim
 
-      - name: print checkout status
-        run: echo "Repository checked out"
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
 
+      - name: print msg
+        run: echo "Running security scans"
         
