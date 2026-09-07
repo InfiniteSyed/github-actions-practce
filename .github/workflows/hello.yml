@@ -7,5 +7,5 @@ jobs:
   hello:
     runs-on: ubuntu-slim
 
-  steps:
-    run: echo "Hello Github Actions"
+    steps:
+      run: echo "Hello Github Actions"
