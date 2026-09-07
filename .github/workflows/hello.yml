@@ -27,6 +27,7 @@ jobs:
         run: echo "Running security scans"
 
   notify:
+    needs: test
     runs-on: ubuntu-slim
     if: ${{failure()}}
 
