@@ -1,0 +1,11 @@
+name: Practice
+
+on:
+  push
+
+jobs:
+  hello:
+    runs-on: ubuntu-slim
+
+  steps:
+    run: echo "Hello Github Actions"
