@@ -17,6 +17,7 @@ jobs:
         
   security:
     runs-on: ubuntu-slim
+    needs: test
 
     steps:
       - name: checkout code
