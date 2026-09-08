@@ -36,12 +36,12 @@ jobs:
         
 
   cleanup:
-    needs: test
+    needs: security
     runs-on: ubuntu-slim
     if: ${{always()}}
 
     steps:
       - name: print msg
-        run: echo "cleanup run after all jobs"     
+        run: echo "Cleanup completed"     
         
  
