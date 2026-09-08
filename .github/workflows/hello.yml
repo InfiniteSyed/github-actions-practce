@@ -29,9 +29,19 @@ jobs:
   notify:
     needs: test
     runs-on: ubuntu-slim
-    if: ${{always()}}
 
     steps:
       - name: print msg
         run: echo "Test failed - taking action"     
         
+
+  cleanup:
+    needs: notify
+    runs-on: ubuntu-slim
+    if: ${{always()}}
+
+    steps:
+      - name: print msg
+        run: echo "cleanup run after all jobs"     
+        
+ 
