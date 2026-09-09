@@ -3,7 +3,6 @@ name: outputs-practice
 on: push
 
 jobs:
-
   test:
     runs-on: ubuntu-slim
 
