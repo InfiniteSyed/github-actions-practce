@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-slim
 
     outputs:
-      app_version: ${{ steps.version.outputs.version }}
+      app_version: ${{ steps.version.outputs.app_version }}
 
     steps:
       - name: app_version
