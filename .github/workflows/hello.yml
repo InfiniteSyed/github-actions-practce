@@ -2,24 +2,23 @@ name: outputs-practice
 
 on: push
 
-  jobs:
-    
-	test:
-	  runs-on: ubuntu-slim
-	  	  
-	  outputs: 
-	    aap_version: ${{steps.version.outputs.version}}
-		
-	  steps:
+jobs:
+
+  test:
+    runs-on: ubuntu-slim
+
+    outputs:
+      app_version: ${{ steps.version.outputs.version }}
+
+    steps:
       - name: app_version
-		    id: version
-		    run: echo "version=2.5" >> "$GITHUB_OUTPUT"
-		  
-		  
-	security:
+        id: version
+        run: echo "version=2.5" >> "$GITHUB_OUTPUT"
+
+  security:
     needs: test
-	  runs-on: ubuntu-slim
-      	
-	  steps:
+    runs-on: ubuntu-slim
+
+    steps:
       - name: print version
-        run: echo "Testing version: ${{ needs.test.outputs.app_version }} "
+        run: echo "Testing version: ${{ needs.test.outputs.app_version }}"
