@@ -1,50 +1,25 @@
-name: Practice
+name: outputs-practice
 
-on:
-  push
+on: push
 
-env:
-  APP_NAME: github-actions-practice
-
-jobs:
-  test:
-    runs-on: ubuntu-slim
-
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v4
-
-      - name: print ev msg
-        run: echo "$APP_NAME"
-
-        
-  security:
-    runs-on: ubuntu-slim
+  jobs:
+    
+	test:
+	  runs-on: ubuntu-slim
+	  	  
+	  outputs: 
+	    aap_version: ${{steps.version.outputs.version}}
+		
+	  steps:
+      - name: app_version
+		    id: version
+		    run: echo "version=2.5" >> "$GITHUB_OUTPUT"
+		  
+		  
+	security:
     needs: test
-
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v4
-
-      - name: print msg
-        run: echo "$APP_NAME"
-
-  notify:
-    needs: test
-    runs-on: ubuntu-slim
-
-    steps:
-      - name: print msg
-        run: echo "Test failed - taking action"     
-        
-
-  cleanup:
-    needs: security
-    runs-on: ubuntu-slim
-    if: ${{always()}}
-
-    steps:
-      - name: print msg
-        run: echo "Cleanup completed"     
-        
- 
+	  runs-on: ubuntu-slim
+      	
+	  steps:
+      - name: print version
+        run: echo "Testing version: ${{ needs.test.outputs.app_version }} "
