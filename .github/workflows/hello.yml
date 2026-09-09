@@ -4,7 +4,7 @@ on:
   push
 
 env:
-  APP_NAME = github-actions-practice
+  APP_NAME: github-actions-practice
 
 jobs:
   test:
