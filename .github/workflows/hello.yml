@@ -4,7 +4,7 @@ on: push
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     outputs:
       app_version: ${{ steps.version.outputs.app_version }}
@@ -16,7 +16,7 @@ jobs:
 
   security:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     steps:
       - name: print version
