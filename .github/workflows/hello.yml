@@ -4,7 +4,7 @@ on: push
 
 jobs:
   test:
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
 
     outputs:
       app_version: ${{ steps.version.outputs.app_version }}
@@ -16,8 +16,8 @@ jobs:
 
   security:
     needs: test
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
 
     steps:
       - name: print version
-        run: echo "Testing version: ${{ needs.test.outputs.app_version }}"
+        run: 'echo "Testing version: ${{ needs.test.outputs.app_version }}"'
