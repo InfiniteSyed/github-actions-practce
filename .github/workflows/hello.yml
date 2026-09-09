@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: print msg
-        run: echo "Running security scans"
+        run: exit 1
 
   notify:
     needs: test
