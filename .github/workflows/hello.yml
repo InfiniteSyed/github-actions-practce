@@ -17,7 +17,9 @@ jobs:
           path: test-report.txt
 
   security:
+    needs: test
     runs-on: ubuntu-slim
+    
 
     steps:
       - name: download test report
