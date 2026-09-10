@@ -23,7 +23,7 @@ jobs:
       - name: download test report
         uses: actions/download-artifact@v4
         with:
-          name: test-report
+          name: test-report.txt
 
       - name: read test report
         run: cat test-report.txt
